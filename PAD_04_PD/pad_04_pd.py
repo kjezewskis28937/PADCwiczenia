@@ -56,7 +56,12 @@ dataFrame
 """4. Rozdziel kolumnę tshirt category na 3 kolumny: tshirt_type, która będzie mówiła o tym czy jest to koszulka, bluza czy coś innego, tshirt_size, która będzie informowała o rozmiarze koszulki, i tshirt_colour, która będzie informowała o kolorze. Skorzystaj z metody apply."""
 
 dataFrame[['tshirt_type', 'tshirt_size', 'tshirt_colour']] = dataFrame['tshirt_category'].str.split(expand = True)
+dataFrame.drop('tshirt_category', axis = 1, inplace = True)
 dataFrame
+
+"""5. Znajdź zamówienia złożone między 31 grudnia 2014 a 2 sierpnia 2016"""
+
+dataFrame.loc[dataFrame["order_date"].between('2014-12-31', '2016-08-02')]
 
 """Zadanie 2 (4 pkt)
 
